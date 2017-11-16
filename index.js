@@ -81,10 +81,7 @@ const defaultOptions = {
  * @return {*}
  */
 const defaults = userOptions => {
-  const options = {
-    ...defaultOptions,
-    ...userOptions
-  };
+  const options = Object.assign({}, defaultOptions, userOptions);
   options.destination = options.destination || options.source;
   if (!options.include || !options.include.length)
     throw new Error("include should be an array");
